@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Add Book | Bookstore Management</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <div class="brand">📚 Bookstore Management System</div>
+    <h1>ADD A BOOK</h1>
+    <p>Manage your books, inventory and catalogue in one place.</p>
+  </header>
+
+  <nav>
+    <a href="index.html">🏠 Home</a>
+    <a href="list.html">📖 All Books</a>
+    <a href="listOne.html">🔍 Find a Book</a>
+    <a href="insert.html" class="active">➕ Add Book</a>
+    <a href="update.html">✏️ Update Book</a>
+    <a href="delete.html">🗑️ Delete Book</a>
+  </nav>
+
+  <main>
+    <section class="card">
+      <div class="card-split">
+        <div class="card-visual">
+          <img src="images/add-book.jpg" alt="A librarian adding new books to library shelves">
+          <div class="card-visual-caption">
+            <span>📚</span>
+            <span>New Title Acquisition &amp; Inventory Entry</span>
+          </div>
+        </div>
+
+        <div>
+          <div class="eyebrow">New Catalogue Entry</div>
+          <h2>Add a New Book</h2>
+          <p>Enter the complete volume details below to commit a new record to the bookstore database.</p>
+
+          <form id="bookForm">
+            <div class="form-grid">
+              <div class="field">
+                <label for="book_id">Book ID <span class="required">*</span></label>
+                <input id="book_id" type="number" min="1" required placeholder="e.g. 106">
+                <span class="field-help">Unique integer identifier</span>
+              </div>
+
+              <div class="field">
+                <label for="title">Book Title <span class="required">*</span></label>
+                <input id="title" type="text" required placeholder="e.g. To Kill a Mockingbird">
+                <span class="field-help">Full title of the publication</span>
+              </div>
+
+              <div class="field">
+                <label for="author">Author <span class="required">*</span></label>
+                <input id="author" type="text" required placeholder="e.g. Harper Lee">
+                <span class="field-help">Author or editor name</span>
+              </div>
+
+              <div class="field">
+                <label for="category">Category <span class="required">*</span></label>
+                <input id="category" type="text" required placeholder="e.g. Fiction, Classics, Science">
+                <span class="field-help">Genre or classification</span>
+              </div>
+
+              <div class="field">
+                <label for="price">Price (₹) <span class="required">*</span></label>
+                <input id="price" type="number" min="0" step="0.01" required placeholder="e.g. 399.00">
+                <span class="field-help">Retail price in rupees</span>
+              </div>
+
+              <div class="field">
+                <label for="stock">Stock Quantity <span class="required">*</span></label>
+                <input id="stock" type="number" min="0" step="1" required placeholder="e.g. 15">
+                <span class="field-help">Number of copies available</span>
+              </div>
+            </div>
+
+            <div class="actions">
+              <button type="submit">💾 Save Book Record</button>
+              <a class="btn secondary" href="list.html">Cancel</a>
+            </div>
+          </form>
+
+          <div id="message" class="notice" hidden></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-content">
+      <span>Bookstore Management System &copy; 2026 &middot; Book catalogue and stock control</span>
+      <span class="footer-badge">
+        <span class="dot"></span> MySQL Database: bookstore &middot; table: books
+      </span>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

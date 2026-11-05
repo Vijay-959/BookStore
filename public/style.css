@@ -1,0 +1,927 @@
+/* ==========================================================================
+   Bookstore Management System - Master Stylesheet
+   Modern, Elegant, Professional Bookstore Theme
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. Design Tokens & CSS Variables
+   -------------------------------------------------------------------------- */
+:root {
+  /* Brand Palette - Deep Navy, Classic Indigo & Literary Warm Amber */
+  --primary-900: #0f172a;
+  --primary-800: #1e293b;
+  --primary-700: #1e3a8a;
+  --primary-600: #2563eb;
+  --primary-500: #3b82f6;
+  --primary-100: #dbeafe;
+  --primary-50:  #eff6ff;
+
+  --accent-800:  #92400e;
+  --accent-700:  #b45309;
+  --accent-600:  #d97706;
+  --accent-500:  #f59e0b;
+  --accent-100:  #fef3c7;
+  --accent-50:   #fffbeb;
+
+  --success-700: #047857;
+  --success-600: #059669;
+  --success-100: #d1fae5;
+  --success-50:  #ecfdf5;
+
+  --danger-700:  #b91c1c;
+  --danger-600:  #dc2626;
+  --danger-100:  #fee2e2;
+  --danger-50:   #fef2f2;
+
+  --neutral-900: #0f172a;
+  --neutral-800: #1e293b;
+  --neutral-700: #334155;
+  --neutral-600: #475569;
+  --neutral-500: #64748b;
+  --neutral-400: #94a3b8;
+  --neutral-300: #cbd5e1;
+  --neutral-200: #e2e8f0;
+  --neutral-100: #f1f5f9;
+  --neutral-50:  #f8fafc;
+  --white:       #ffffff;
+
+  /* Typography */
+  --font-heading: 'Playfair Display', Georgia, Cambria, 'Times New Roman', serif;
+  --font-body:    'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --font-mono:    ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+
+  /* Shadows */
+  --shadow-xs: 0 1px 2px rgba(15, 23, 42, 0.04);
+  --shadow-sm: 0 2px 4px rgba(15, 23, 42, 0.06);
+  --shadow-md: 0 6px 12px -2px rgba(15, 23, 42, 0.08), 0 3px 6px -2px rgba(15, 23, 42, 0.04);
+  --shadow-lg: 0 12px 24px -4px rgba(15, 23, 42, 0.10), 0 6px 12px -4px rgba(15, 23, 42, 0.05);
+  --shadow-xl: 0 20px 32px -6px rgba(15, 23, 42, 0.12), 0 10px 16px -6px rgba(15, 23, 42, 0.06);
+
+  /* Radius */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --radius-xl: 22px;
+  --radius-full: 9999px;
+
+  /* Transitions */
+  --transition-fast: 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-normal: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-smooth: 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* --------------------------------------------------------------------------
+   2. Reset & Global Styles
+   -------------------------------------------------------------------------- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: 0.975rem;
+  line-height: 1.6;
+  color: var(--neutral-700);
+  background: linear-gradient(180deg, #f8fafc 0%, #f1f5f9 100%);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* --------------------------------------------------------------------------
+   3. Header & Brand Identity
+   -------------------------------------------------------------------------- */
+header {
+  background: linear-gradient(135deg, #0b132b 0%, #1c2541 50%, #1e3a8a 100%);
+  color: var(--white);
+  padding: 2.25rem 1.5rem 2rem;
+  text-align: center;
+  position: relative;
+  box-shadow: var(--shadow-md);
+  border-bottom: 3px solid var(--accent-600);
+}
+
+header::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: radial-gradient(circle at 20% 30%, rgba(217, 119, 6, 0.15) 0%, transparent 50%),
+                    radial-gradient(circle at 80% 70%, rgba(37, 99, 235, 0.18) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+header .brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.825rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--accent-500);
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(245, 158, 11, 0.3);
+  padding: 0.4rem 1rem;
+  border-radius: var(--radius-full);
+  margin-bottom: 0.85rem;
+  backdrop-filter: blur(8px);
+}
+
+header h1 {
+  font-family: var(--font-heading);
+  font-size: clamp(1.85rem, 3.8vw, 2.75rem);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: var(--white);
+  margin-bottom: 0.45rem;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+header p {
+  color: var(--neutral-300);
+  font-size: 1.05rem;
+  max-width: 600px;
+  margin: 0 auto;
+  font-weight: 400;
+}
+
+/* --------------------------------------------------------------------------
+   4. Navigation Bar
+   -------------------------------------------------------------------------- */
+nav {
+  background: var(--white);
+  border-bottom: 1px solid var(--neutral-200);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.65rem 1rem;
+  flex-wrap: wrap;
+  box-shadow: var(--shadow-sm);
+  backdrop-filter: blur(10px);
+}
+
+nav a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--neutral-600);
+  padding: 0.55rem 0.95rem;
+  border-radius: var(--radius-md);
+  transition: var(--transition-fast);
+  border: 1px solid transparent;
+}
+
+nav a:hover {
+  color: var(--primary-700);
+  background: var(--primary-50);
+  border-color: var(--primary-100);
+  transform: translateY(-1px);
+}
+
+nav a.active,
+nav a[aria-current="page"] {
+  color: var(--primary-700);
+  background: var(--primary-100);
+  border-color: var(--primary-500);
+  box-shadow: 0 1px 3px rgba(37, 99, 235, 0.15);
+}
+
+/* --------------------------------------------------------------------------
+   5. Main Layout & Containers
+   -------------------------------------------------------------------------- */
+main {
+  flex: 1;
+  max-width: 1140px;
+  width: 100%;
+  margin: 2.25rem auto;
+  padding: 0 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.775rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--accent-700);
+  background: var(--accent-50);
+  border: 1px solid var(--accent-100);
+  padding: 0.25rem 0.75rem;
+  border-radius: var(--radius-full);
+  margin-bottom: 0.75rem;
+  width: fit-content;
+}
+
+/* --------------------------------------------------------------------------
+   6. Hero Section (Home Page)
+   -------------------------------------------------------------------------- */
+.hero {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--neutral-200);
+  box-shadow: var(--shadow-lg);
+  padding: 2.5rem;
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  align-items: center;
+  gap: 2.5rem;
+  overflow: hidden;
+  position: relative;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(217, 119, 6, 0.08) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.hero h2 {
+  font-family: var(--font-heading);
+  font-size: clamp(1.8rem, 3vw, 2.4rem);
+  font-weight: 700;
+  color: var(--neutral-900);
+  line-height: 1.25;
+  margin-bottom: 1rem;
+}
+
+.hero p {
+  color: var(--neutral-600);
+  font-size: 1.05rem;
+  line-height: 1.7;
+  margin-bottom: 1.75rem;
+}
+
+.hero img {
+  width: 100%;
+  height: 340px;
+  object-fit: cover;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--neutral-200);
+  transition: var(--transition-smooth);
+}
+
+.hero img:hover {
+  transform: scale(1.02);
+  box-shadow: var(--shadow-xl);
+}
+
+/* --------------------------------------------------------------------------
+   7. Card Components
+   -------------------------------------------------------------------------- */
+.card {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--neutral-200);
+  box-shadow: var(--shadow-md);
+  padding: 2.25rem;
+  position: relative;
+  transition: var(--transition-fast);
+}
+
+.card:hover {
+  box-shadow: var(--shadow-lg);
+}
+
+.card h2 {
+  font-family: var(--font-heading);
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--neutral-900);
+  margin-bottom: 0.5rem;
+}
+
+.card > p {
+  color: var(--neutral-600);
+  font-size: 0.975rem;
+  margin-bottom: 1.5rem;
+}
+
+/* Page Split / Two-Column Card for Forms & Details */
+.card-split {
+  display: grid;
+  grid-template-columns: 360px 1fr;
+  gap: 2.25rem;
+  align-items: start;
+}
+
+.card-visual {
+  position: relative;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  border: 1px solid var(--neutral-200);
+  box-shadow: var(--shadow-sm);
+  background: var(--neutral-100);
+}
+
+.card-visual img {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+  display: block;
+  transition: var(--transition-smooth);
+}
+
+.card-visual:hover img {
+  transform: scale(1.03);
+}
+
+.card-visual-caption {
+  padding: 0.9rem 1rem;
+  background: var(--white);
+  border-top: 1px solid var(--neutral-200);
+  font-size: 0.825rem;
+  color: var(--neutral-600);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 500;
+}
+
+/* Page Showcase Banner (for list.html) */
+.page-banner {
+  background: var(--white);
+  border: 1px solid var(--neutral-200);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  align-items: stretch;
+  margin-bottom: 1.5rem;
+}
+
+.page-banner-img {
+  width: 100%;
+  height: 100%;
+  min-height: 180px;
+  max-height: 220px;
+  object-fit: cover;
+  display: block;
+}
+
+.page-banner-content {
+  padding: 1.75rem 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.page-banner-content h3 {
+  font-family: var(--font-heading);
+  font-size: 1.45rem;
+  color: var(--neutral-900);
+  margin-bottom: 0.4rem;
+}
+
+.page-banner-content p {
+  color: var(--neutral-600);
+  font-size: 0.925rem;
+  line-height: 1.5;
+  margin-bottom: 1rem;
+}
+
+.page-banner-meta {
+  display: flex;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+}
+
+.stat-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  background: var(--neutral-50);
+  border: 1px solid var(--neutral-200);
+  padding: 0.35rem 0.75rem;
+  border-radius: var(--radius-full);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--neutral-700);
+}
+
+.stat-pill .indicator {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--success-600);
+  box-shadow: 0 0 0 2px var(--success-100);
+}
+
+/* Feature Grid for Home Page */
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.25rem;
+  margin-top: 1.5rem;
+}
+
+.feature-box {
+  background: var(--neutral-50);
+  border: 1px solid var(--neutral-200);
+  border-radius: var(--radius-md);
+  padding: 1.35rem;
+  transition: var(--transition-fast);
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+}
+
+.feature-box:hover {
+  background: var(--white);
+  border-color: var(--primary-500);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-3px);
+}
+
+.feature-box .icon {
+  font-size: 1.8rem;
+  margin-bottom: 0.75rem;
+}
+
+.feature-box h4 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--neutral-900);
+  margin-bottom: 0.35rem;
+}
+
+.feature-box p {
+  font-size: 0.85rem;
+  color: var(--neutral-600);
+  line-height: 1.5;
+  flex: 1;
+}
+
+.feature-box .link-arrow {
+  margin-top: 0.85rem;
+  font-size: 0.825rem;
+  font-weight: 700;
+  color: var(--primary-600);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+/* --------------------------------------------------------------------------
+   8. Form Controls & Inputs
+   -------------------------------------------------------------------------- */
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem;
+  margin-top: 1.25rem;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.field.full {
+  grid-column: 1 / -1;
+}
+
+.field label {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--neutral-800);
+  letter-spacing: 0.01em;
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.field label span.required {
+  color: var(--danger-600);
+  font-weight: 700;
+}
+
+.field input,
+.field select {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  padding: 0.75rem 0.95rem;
+  border-radius: var(--radius-md);
+  border: 1.5px solid var(--neutral-300);
+  background: var(--white);
+  color: var(--neutral-900);
+  transition: var(--transition-fast);
+  width: 100%;
+}
+
+.field input:hover,
+.field select:hover {
+  border-color: var(--neutral-400);
+}
+
+.field input:focus,
+.field select:focus {
+  outline: none;
+  border-color: var(--primary-600);
+  box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.12);
+  background: var(--white);
+}
+
+.field input::placeholder {
+  color: var(--neutral-400);
+}
+
+.field input[readonly] {
+  background-color: var(--neutral-100);
+  border-color: var(--neutral-200);
+  color: var(--neutral-600);
+  cursor: not-allowed;
+}
+
+.field select {
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23475569' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-size: 1rem;
+  padding-right: 2.5rem;
+}
+
+.field-help {
+  font-size: 0.775rem;
+  color: var(--neutral-500);
+}
+
+/* --------------------------------------------------------------------------
+   9. Buttons & Interactive Controls
+   -------------------------------------------------------------------------- */
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  flex-wrap: wrap;
+  margin-top: 1.5rem;
+}
+
+button,
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-family: var(--font-body);
+  font-size: 0.925rem;
+  font-weight: 600;
+  padding: 0.72rem 1.4rem;
+  border-radius: var(--radius-md);
+  border: 1.5px solid transparent;
+  cursor: pointer;
+  text-decoration: none;
+  transition: var(--transition-fast);
+  background: linear-gradient(135deg, var(--primary-700) 0%, var(--primary-600) 100%);
+  color: var(--white);
+  box-shadow: 0 2px 4px rgba(37, 99, 235, 0.2);
+}
+
+button:hover,
+.btn:hover {
+  background: linear-gradient(135deg, var(--primary-800) 0%, var(--primary-700) 100%);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 10px rgba(37, 99, 235, 0.3);
+}
+
+button:active,
+.btn:active {
+  transform: translateY(0);
+  box-shadow: var(--shadow-xs);
+}
+
+button.secondary,
+.btn.secondary {
+  background: var(--white);
+  color: var(--neutral-700);
+  border: 1.5px solid var(--neutral-300);
+  box-shadow: var(--shadow-xs);
+}
+
+button.secondary:hover,
+.btn.secondary:hover {
+  background: var(--neutral-50);
+  color: var(--neutral-900);
+  border-color: var(--neutral-400);
+  box-shadow: var(--shadow-sm);
+  transform: translateY(-1px);
+}
+
+#deleteBook,
+.btn-danger {
+  background: linear-gradient(135deg, var(--danger-600) 0%, var(--danger-700) 100%);
+  color: var(--white);
+  box-shadow: 0 2px 4px rgba(220, 38, 38, 0.25);
+  border-color: transparent;
+}
+
+#deleteBook:hover,
+.btn-danger:hover {
+  background: linear-gradient(135deg, #b91c1c 0%, #991b1b 100%);
+  box-shadow: 0 4px 12px rgba(220, 38, 38, 0.35);
+  transform: translateY(-1px);
+}
+
+/* --------------------------------------------------------------------------
+   10. Professional Tables
+   -------------------------------------------------------------------------- */
+.table-wrap {
+  width: 100%;
+  overflow-x: auto;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--neutral-200);
+  background: var(--white);
+  box-shadow: var(--shadow-sm);
+  margin-top: 1.25rem;
+  -webkit-overflow-scrolling: touch;
+}
+
+table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  text-align: left;
+  font-size: 0.925rem;
+}
+
+table thead {
+  background: linear-gradient(180deg, #f8fafc 0%, #f1f5f9 100%);
+}
+
+table th {
+  padding: 0.95rem 1.15rem;
+  font-size: 0.775rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--neutral-600);
+  border-bottom: 2px solid var(--neutral-200);
+  white-space: nowrap;
+}
+
+/* Column specific alignment */
+table th:first-child,
+table td:first-child {
+  padding-left: 1.35rem;
+  font-family: var(--font-mono);
+  font-weight: 700;
+  color: var(--primary-700);
+  width: 90px;
+}
+
+table th:nth-child(2),
+table td:nth-child(2) {
+  font-weight: 600;
+  color: var(--neutral-900);
+  min-width: 180px;
+}
+
+table th:nth-child(3),
+table td:nth-child(3) {
+  color: var(--neutral-700);
+  min-width: 150px;
+}
+
+table th:nth-child(4),
+table td:nth-child(4) {
+  color: var(--accent-800);
+  font-weight: 500;
+}
+
+table th:nth-child(5),
+table td:nth-child(5) {
+  text-align: right;
+  font-family: var(--font-mono);
+  font-weight: 700;
+  color: var(--success-700);
+  min-width: 110px;
+}
+
+table th:nth-child(6),
+table td:nth-child(6) {
+  text-align: center;
+  font-weight: 600;
+  min-width: 90px;
+}
+
+table td:last-child,
+table th:last-child {
+  padding-right: 1.35rem;
+}
+
+table tbody tr {
+  transition: var(--transition-fast);
+  background-color: var(--white);
+}
+
+table tbody tr:nth-child(even) {
+  background-color: #fafbfc;
+}
+
+table tbody tr:hover {
+  background-color: #f1f5f9;
+}
+
+table td {
+  padding: 0.95rem 1.15rem;
+  border-bottom: 1px solid var(--neutral-200);
+  vertical-align: middle;
+}
+
+table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* --------------------------------------------------------------------------
+   11. Notices & Feedback Messages
+   -------------------------------------------------------------------------- */
+.notice,
+#message {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.85rem 1.25rem;
+  border-radius: var(--radius-md);
+  font-size: 0.925rem;
+  margin: 1.25rem 0;
+  background-color: var(--primary-50);
+  border: 1px solid var(--primary-100);
+  border-left: 4px solid var(--primary-600);
+  color: var(--primary-900);
+  font-weight: 500;
+  animation: fadeIn 0.25s ease-in-out;
+}
+
+.notice::before,
+#message::before {
+  content: "ℹ️";
+  font-size: 1rem;
+}
+
+.notice[hidden],
+#message[hidden] {
+  display: none !important;
+}
+
+/* --------------------------------------------------------------------------
+   12. Footer
+   -------------------------------------------------------------------------- */
+.footer {
+  background: var(--white);
+  border-top: 1px solid var(--neutral-200);
+  padding: 1.75rem 1.25rem;
+  text-align: center;
+  font-size: 0.875rem;
+  color: var(--neutral-500);
+  margin-top: auto;
+  box-shadow: 0 -1px 3px rgba(0, 0, 0, 0.02);
+}
+
+.footer .footer-content {
+  max-width: 1140px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.footer-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.775rem;
+  font-weight: 600;
+  background: var(--neutral-100);
+  padding: 0.25rem 0.65rem;
+  border-radius: var(--radius-full);
+  color: var(--neutral-700);
+}
+
+.footer-badge .dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--success-600);
+}
+
+/* --------------------------------------------------------------------------
+   13. Animations & Utilities
+   -------------------------------------------------------------------------- */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* --------------------------------------------------------------------------
+   14. Responsive Layouts
+   -------------------------------------------------------------------------- */
+@media (max-width: 900px) {
+  .hero {
+    grid-template-columns: 1fr;
+    padding: 2rem;
+    gap: 1.75rem;
+  }
+
+  .hero img {
+    height: 260px;
+    order: -1;
+  }
+
+  .card-split {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .card-visual img {
+    height: 220px;
+  }
+
+  .page-banner {
+    grid-template-columns: 1fr;
+  }
+
+  .page-banner-img {
+    height: 180px;
+  }
+}
+
+@media (max-width: 640px) {
+  header {
+    padding: 1.75rem 1rem;
+  }
+
+  nav {
+    gap: 0.3rem;
+    padding: 0.5rem;
+  }
+
+  nav a {
+    padding: 0.45rem 0.7rem;
+    font-size: 0.825rem;
+  }
+
+  main {
+    margin: 1.25rem auto;
+    padding: 0 0.85rem;
+  }
+
+  .card {
+    padding: 1.5rem 1.15rem;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  button,
+  .btn {
+    width: 100%;
+  }
+
+  .footer .footer-content {
+    flex-direction: column;
+    text-align: center;
+  }
+}

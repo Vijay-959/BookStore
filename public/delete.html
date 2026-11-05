@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Delete Book | Bookstore Management</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <div class="brand">📚 Bookstore Management System</div>
+    <h1>DELETE BOOK</h1>
+    <p>Manage your books, inventory and catalogue in one place.</p>
+  </header>
+
+  <nav>
+    <a href="index.html">🏠 Home</a>
+    <a href="list.html">📖 All Books</a>
+    <a href="listOne.html">🔍 Find a Book</a>
+    <a href="insert.html">➕ Add Book</a>
+    <a href="update.html">✏️ Update Book</a>
+    <a href="delete.html" class="active">🗑️ Delete Book</a>
+  </nav>
+
+  <main>
+    <section class="card">
+      <div class="card-split">
+        <div class="card-visual">
+          <img src="images/delete-book.jpg" alt="A librarian performing book inventory audit and deaccessioning">
+          <div class="card-visual-caption">
+            <span>🗑️</span>
+            <span>Inventory Deaccessioning &amp; Weeding</span>
+          </div>
+        </div>
+
+        <div>
+          <div class="eyebrow">Remove Catalogue Entry</div>
+          <h2>Delete a Book</h2>
+          <p>Select a book to preview its details before deleting it. Please note this action permanently removes the record from the MySQL database.</p>
+
+          <div class="field full">
+            <label for="bookSelect">Select Book ID &mdash; Title</label>
+            <select id="bookSelect">
+              <option value="">Loading books…</option>
+            </select>
+            <span class="field-help">Choose the record you wish to deaccession</span>
+          </div>
+
+          <div id="message" class="notice">Select a book to preview its details.</div>
+
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Book ID</th>
+                  <th>Title</th>
+                  <th>Author</th>
+                  <th>Category</th>
+                  <th>Price</th>
+                  <th>Stock</th>
+                </tr>
+              </thead>
+              <tbody id="rows"></tbody>
+            </table>
+          </div>
+
+          <div class="actions">
+            <button id="deleteBook">🗑️ Delete Selected Book</button>
+            <a class="btn secondary" href="list.html">Keep book / Go Back</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-content">
+      <span>Bookstore Management System &copy; 2026 &middot; Book catalogue and stock control</span>
+      <span class="footer-badge">
+        <span class="dot"></span> MySQL Database: bookstore &middot; table: books
+      </span>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

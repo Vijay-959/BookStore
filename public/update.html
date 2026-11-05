@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Update Book | Bookstore Management</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <div class="brand">📚 Bookstore Management System</div>
+    <h1>UPDATE BOOK</h1>
+    <p>Manage your books, inventory and catalogue in one place.</p>
+  </header>
+
+  <nav>
+    <a href="index.html">🏠 Home</a>
+    <a href="list.html">📖 All Books</a>
+    <a href="listOne.html">🔍 Find a Book</a>
+    <a href="insert.html">➕ Add Book</a>
+    <a href="update.html" class="active">✏️ Update Book</a>
+    <a href="delete.html">🗑️ Delete Book</a>
+  </nav>
+
+  <main>
+    <section class="card">
+      <div class="card-split">
+        <div class="card-visual">
+          <img src="images/update-book.jpg" alt="A bookstore manager updating inventory catalogue records on a laptop">
+          <div class="card-visual-caption">
+            <span>✏️</span>
+            <span>Catalogue Maintenance &amp; Record Editor</span>
+          </div>
+        </div>
+
+        <div>
+          <div class="eyebrow">Edit Catalogue</div>
+          <h2>Update Book Details</h2>
+          <p>Choose a book from the list. Its current details will load into the form for editing.</p>
+
+          <div class="field full" style="margin-bottom: 1.25rem;">
+            <label for="bookSelect">Select Book ID &mdash; Title</label>
+            <select id="bookSelect">
+              <option value="">Loading books…</option>
+            </select>
+            <span class="field-help">Selecting a book automatically populates its fields below</span>
+          </div>
+
+          <form id="bookForm">
+            <div class="form-grid">
+              <div class="field">
+                <label for="book_id">Book ID (Locked)</label>
+                <input id="book_id" type="number" min="1" required readonly title="Book ID is permanent and cannot be changed">
+                <span class="field-help">Database primary key (read-only)</span>
+              </div>
+
+              <div class="field">
+                <label for="title">Book Title <span class="required">*</span></label>
+                <input id="title" type="text" required placeholder="Updated book title">
+                <span class="field-help">Edit the volume title</span>
+              </div>
+
+              <div class="field">
+                <label for="author">Author <span class="required">*</span></label>
+                <input id="author" type="text" required placeholder="Author name">
+                <span class="field-help">Edit the author name</span>
+              </div>
+
+              <div class="field">
+                <label for="category">Category <span class="required">*</span></label>
+                <input id="category" type="text" required placeholder="e.g. Fiction, Science">
+                <span class="field-help">Edit the book classification</span>
+              </div>
+
+              <div class="field">
+                <label for="price">Price (₹) <span class="required">*</span></label>
+                <input id="price" type="number" min="0" step="0.01" required placeholder="Updated price">
+                <span class="field-help">Update price per unit</span>
+              </div>
+
+              <div class="field">
+                <label for="stock">Stock Quantity <span class="required">*</span></label>
+                <input id="stock" type="number" min="0" step="1" required placeholder="Updated stock">
+                <span class="field-help">Update available copies</span>
+              </div>
+            </div>
+
+            <div class="actions">
+              <button type="submit">💾 Update Book Details</button>
+              <a class="btn secondary" href="list.html">Cancel</a>
+            </div>
+          </form>
+
+          <div id="message" class="notice">Select a book to edit.</div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-content">
+      <span>Bookstore Management System &copy; 2026 &middot; Book catalogue and stock control</span>
+      <span class="footer-badge">
+        <span class="dot"></span> MySQL Database: bookstore &middot; table: books
+      </span>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

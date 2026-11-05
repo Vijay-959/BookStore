@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home | Bookstore Management</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <div class="brand">📚Vijay Bookstore Management System</div>
+    <h1>Vijay Online Bookstore </h1>
+    <p>Manage your books, inventory and catalogue in one place.</p>
+  </header>
+
+  <nav>
+    <a href="index.html" class="active">🏠 Home</a>
+    <a href="list.html">📖 All Books</a>
+    <a href="listOne.html">🔍 Find a Book</a>
+    <a href="insert.html">➕ Add Book</a>
+    <a href="update.html">✏️ Update Book</a>
+    <a href="delete.html">🗑️ Delete Book</a>
+  </nav>
+
+  <main>
+    <section class="hero">
+      <div>
+        <div class="eyebrow">✨ Welcome to your catalogue</div>
+        <h2>Every book, beautifully organised.</h2>
+        <p>Use this central portal to view the complete inventory, look up specific volumes, add newly acquired titles, update catalogue records, and maintain stock levels with real-time MySQL database sync.</p>
+        <div class="actions">
+          <a class="btn" href="list.html">📖 View all books</a>
+          <a class="btn secondary" href="insert.html">➕ Add a book</a>
+        </div>
+      </div>
+      <img src="images/hero-bookstore.jpg" alt="A warm, elegant bookstore interior with bookshelves and reading area">
+    </section>
+
+    <section class="card">
+      <div class="eyebrow">⚡ Quick Operations</div>
+      <h2>Manage your inventory</h2>
+      <p>Select a quick action below to query or modify your bookstore catalogue records.</p>
+      <div class="features-grid">
+        <a class="feature-box" href="list.html">
+          <span class="icon">📚</span>
+          <h4>Complete Catalogue</h4>
+          <p>Browse through all available titles, authors, categories, prices, and stock units.</p>
+          <span class="link-arrow">Open Catalogue &rarr;</span>
+        </a>
+        <a class="feature-box" href="listOne.html">
+          <span class="icon">🔍</span>
+          <h4>Find Single Book</h4>
+          <p>Search and load individual volume records by Book ID with full detail preview.</p>
+          <span class="link-arrow">Look up book &rarr;</span>
+        </a>
+        <a class="feature-box" href="insert.html">
+          <span class="icon">➕</span>
+          <h4>New Acquisition</h4>
+          <p>Enroll new book deliveries with custom ID, title, author, category, price, and stock.</p>
+          <span class="link-arrow">Add book record &rarr;</span>
+        </a>
+        <a class="feature-box" href="update.html">
+          <span class="icon">✏️</span>
+          <h4>Update Book</h4>
+          <p>Modify book metadata, adjust pricing, or update inventory stock quantities.</p>
+          <span class="link-arrow">Edit record &rarr;</span>
+        </a>
+        <a class="feature-box" href="delete.html">
+          <span class="icon">🗑️</span>
+          <h4>Delete Record</h4>
+          <p>Safely deaccession retired books with interactive verification preview.</p>
+          <span class="link-arrow">Deaccession volume &rarr;</span>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-content">
+      <span>Bookstore Management System &copy; 2026 &middot; Book catalogue and stock control</span>
+      <span class="footer-badge">
+        <span class="dot"></span> MySQL Database: bookstore &middot; table: books
+      </span>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

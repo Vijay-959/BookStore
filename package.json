@@ -1,0 +1,21 @@
+{
+  "name": "bookstore-crud",
+  "version": "1.0.0",
+  "description": "Professional Bookstore CRUD Management System with Node.js, Express, MySQL and Modern Responsive UI",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "express": "^4.21.2",
+    "mysql2": "^3.12.0"
+  },
+  "keywords": [
+    "bookstore",
+    "crud",
+    "express",
+    "mysql"
+  ],
+  "author": "",
+  "license": "ISC"
+}

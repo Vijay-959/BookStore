@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Find a Book | Bookstore Management</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <div class="brand">📚 Bookstore Management System</div>
+    <h1>SEARCH BOOK</h1>
+    <p>Manage your books, inventory and catalogue in one place.</p>
+  </header>
+
+  <nav>
+    <a href="index.html">🏠 Home</a>
+    <a href="list.html">📖 All Books</a>
+    <a href="listOne.html" class="active">🔍 Find a Book</a>
+    <a href="insert.html">➕ Add Book</a>
+    <a href="update.html">✏️ Update Book</a>
+    <a href="delete.html">🗑️ Delete Book</a>
+  </nav>
+
+  <main>
+    <section class="card">
+      <div class="card-split">
+        <div class="card-visual">
+          <img src="images/search-book.jpg" alt="A reader searching for a title on library bookshelves">
+          <div class="card-visual-caption">
+            <span>🔍</span>
+            <span>Targeted Volume Search &amp; Detail Inspector</span>
+          </div>
+        </div>
+
+        <div>
+          <div class="eyebrow">Lookup</div>
+          <h2>Find a Book</h2>
+          <p>Select a book ID from the database to retrieve and inspect its full catalogue details.</p>
+
+          <div class="form-grid">
+            <div class="field full">
+              <label for="bookSelect">Select Book ID &mdash; Title</label>
+              <select id="bookSelect">
+                <option value="">Loading books…</option>
+              </select>
+              <span class="field-help">Choose a volume from the active catalogue list</span>
+            </div>
+          </div>
+
+          <div class="actions">
+            <button id="showBook">🔍 Show Details</button>
+            <button class="secondary" id="refreshOptions">🔄 Refresh Options</button>
+          </div>
+        </div>
+      </div>
+
+      <div id="message" class="notice">Choose a book to begin.</div>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Book ID</th>
+              <th>Title</th>
+              <th>Author</th>
+              <th>Category</th>
+              <th>Price</th>
+              <th>Stock</th>
+            </tr>
+          </thead>
+          <tbody id="rows"></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-content">
+      <span>Bookstore Management System &copy; 2026 &middot; Book catalogue and stock control</span>
+      <span class="footer-badge">
+        <span class="dot"></span> MySQL Database: bookstore &middot; table: books
+      </span>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
